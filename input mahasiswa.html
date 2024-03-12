@@ -37,36 +37,31 @@
         }
 
         function saveStudent() {
-            // Deklarasi variable dr id element input
             var studentForm = document.getElementById("studentForm");
             var nim = document.getElementById("nim").value;
             var name = document.getElementById("name").value;
             var kelas = document.getElementById("kelas").value;
             
-            // Buat student object baru
             var student = new Student(nim,name,kelas);
             arrStudent.push(student);
-            // Reset Form
+            
             studentForm.reset();
-            // Tampilkan data yang ditambahkan >> fungsi show
+            
             showStudent(student);
 
-            // Tampilkan log dan Simpan data ke array
             console.log(student);
             console.log(arrStudent);
             showStudentList(student);
         }
         
-        // Menampilkan data mahasiswa ke HTML
         function showStudent(student) {    
             var tbody = document.querySelector("#studentTable tbody");
             var tr = document.createElement("tr");
-            // buat kolom value nim
+            
             var tdNim = document.createElement("td");
             tdNim.textContent = student.nim;
             tr.appendChild(tdNim);
 
-            // buat kolom value nama
             var tdNama = document.createElement("td");
             tdNama.textContent = student.name;
             tr.appendChild(tdNama);
